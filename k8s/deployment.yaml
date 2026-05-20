@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: api-gateway
-          image: api-gateway:latest # Replace with your container registry image
+          image: ggj-api-gateway
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3000
@@ -32,13 +32,13 @@ spec:
                   key: JWT_SECRET
             # Set internal cluster URLs for microservices
             - name: USER_SERVICE_URL
-              value: "http://user-service:3001"
+              value: "http://ggj-user-service:3000"
             - name: POST_SERVICE_URL
-              value: "http://post-service:3002"
+              value: "http://ggj-content-service:3000"
             - name: CONNECTION_SERVICE_URL
-              value: "http://connection-service:3003"
+              value: "http://ggj-connection-service:3000"
             - name: FEED_SERVICE_URL
-              value: "http://feed-service:3004"
+              value: "http://ggj-feed-service:3000"
           resources:
             requests:
               memory: "128Mi"
